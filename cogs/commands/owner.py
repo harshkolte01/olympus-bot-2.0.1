@@ -180,7 +180,25 @@ class Owner(commands.Cog):
         async with aiosqlite.connect(self.db_path) as db:
             async with db.execute('SELECT id FROM staff') as cursor:
                 self.staff = {row[0] for row in await cursor.fetchall()}
+     
+    OWNER_IDS = [1263356161344671805, 520174525090889731, 1243886320590524440]
+     
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        """Reacts with an emoji when an owner is mentioned."""
+        # Ignore messages from bots to prevent self-reaction loops
+        if message.author.bot:
+            return
 
+        # Check if any mentioned user is in OWNER_IDS
+        mentioned_ids = [user.id for user in message.mentions]
+        if any(owner_id in mentioned_ids for owner_id in OWNER_IDS):
+            # React with an emoji (e.g., 👍)
+            try:
+                await message.add_reaction("<a:zCREATE:1346424788931055709>")  # You can change this to any emoji
+            except discord.HTTPException as e:
+                print(f"Failed to add reaction: {e}")
+                
     @commands.command(name="staff_add", aliases=["staffadd", "addstaff"], help="Adds a user to the staff list.")
     @commands.is_owner()
     async def staff_add(self, ctx, user: discord.User):
