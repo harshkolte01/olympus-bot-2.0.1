@@ -167,7 +167,7 @@ class Embed(commands.Cog):
                 tit = await ctx.bot.wait_for("message", timeout=30, check=chk)
                 chnl = tit.channel_mentions[0]
                 await chnl.send(embed=embed)
-                await ctx.send(embed=discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+                await ctx.send(embed=discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                                    description="Sent the embed message to the mentioned channel",
                                                    color=0x00FFFF))
             except asyncio.TimeoutError:
@@ -180,10 +180,10 @@ class Embed(commands.Cog):
             await interaction.response.defer()
             await msg.delete()
 
-        button_send = Button(label="Send Embed",  emoji="<:olympus_ignore:1254106939693203467>", style=discord.ButtonStyle.success)
+        button_send = Button(label="Send Embed",  emoji="<a:vx_warn:1337749180784971881>", style=discord.ButtonStyle.success)
         button_send.callback = send_callback
 
-        button_delete = Button(label="Cancel Setup",  emoji="<:baseline_delete_white_24dp:1266955566870167572>", style=discord.ButtonStyle.danger)
+        button_delete = Button(label="Cancel Setup",  emoji="<:vx_delete:1346507590640599133>", style=discord.ButtonStyle.danger)
         button_delete.callback = delete_callback
 
         view = View(timeout=180)

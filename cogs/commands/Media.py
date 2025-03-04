@@ -52,7 +52,7 @@ class Media(commands.Cog):
                 result = await cursor.fetchone()
                 if result:
                     embed = discord.Embed(
-                        title="<a:max_cross2:1346031247192883254> Error",
+                        title="<:vx_cross:1346442303786717194> Error",
                         description="A media channel is already set. Please remove it before setting a new one.",
                         color=0x00FFFF
                     )
@@ -63,7 +63,7 @@ class Media(commands.Cog):
             await db.commit()
 
         embed = discord.Embed(
-            title="<a:emoji_1740993086003:1346047306230792204> Success",
+            title="<:vx_tick:1346442266688094251> Success",
             description=f"Successfully set {channel.mention} as the media-only channel.",
             color=0x00FFFF
         )
@@ -81,7 +81,7 @@ class Media(commands.Cog):
                 result = await cursor.fetchone()
                 if not result:
                     embed = discord.Embed(
-                        title="<a:max_cross2:1346031247192883254> Error",
+                        title="<:vx_cross:1346442303786717194> Error",
                         description="There is no media-only channel set for this server.",
                         color=0x00FFFF
                     )
@@ -92,7 +92,7 @@ class Media(commands.Cog):
             await db.commit()
 
         embed = discord.Embed(
-            title="<a:emoji_1740993086003:1346047306230792204> Success",
+            title="<:vx_tick:1346442266688094251> Success",
             description="Successfully removed the media-only channel.",
             color=0x00FFFF
         )
@@ -109,7 +109,7 @@ class Media(commands.Cog):
                 result = await cursor.fetchone()
                 if not result:
                     embed = discord.Embed(
-                        title="<a:max_cross2:1346031247192883254> Error",
+                        title="<:vx_cross:1346442303786717194> Error",
                         description="There is no media-only channel set for this server.",
                         color=0x00FFFF
                     )
@@ -145,7 +145,7 @@ class Media(commands.Cog):
                 count = await cursor.fetchone()
                 if count[0] >= 25:
                     embed = discord.Embed(
-                        title="<a:max_cross2:1346031247192883254> Error",
+                        title="<:vx_cross:1346442303786717194> Error",
                         description="The bypass list can only hold up to 25 users.",
                         color=0x00FFFF
                     )
@@ -156,7 +156,7 @@ class Media(commands.Cog):
                 result = await cursor.fetchone()
                 if result:
                     embed = discord.Embed(
-                        title="<a:max_cross2:1346031247192883254> Error",
+                        title="<:vx_cross:1346442303786717194> Error",
                         description=f"{user.mention} is already in the bypass list.",
                         color=0x00FFFF
                     )
@@ -167,7 +167,7 @@ class Media(commands.Cog):
             await db.commit()
 
         embed = discord.Embed(
-            title="<a:emoji_1740993086003:1346047306230792204> Success",
+            title="<:vx_tick:1346442266688094251> Success",
             description=f"{user.mention} has been added to the bypass list.",
             color=0x00FFFF
         )
@@ -184,7 +184,7 @@ class Media(commands.Cog):
                 result = await cursor.fetchone()
                 if not result:
                     embed = discord.Embed(
-                        title="<a:max_cross2:1346031247192883254> Error",
+                        title="<:vx_cross:1346442303786717194> Error",
                         description=f"{user.mention} is not in the bypass list.",
                         color=0x00FFFF
                     )
@@ -195,7 +195,7 @@ class Media(commands.Cog):
             await db.commit()
 
         embed = discord.Embed(
-            title="<a:emoji_1740993086003:1346047306230792204> Success",
+            title="<:vx_tick:1346442266688094251> Success",
             description=f"{user.mention} has been removed from the bypass list.",
             color=0x00FFFF
         )

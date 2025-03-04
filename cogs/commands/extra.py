@@ -30,8 +30,8 @@ def datetime_to_seconds(thing: datetime.datetime):
     round(time.time()) +
     (current_time - thing.replace(tzinfo=None)).total_seconds())
 
-tick = "<a:emoji_1740993086003:1346047306230792204>"
-cross = "<a:max_cross2:1346031247192883254>"
+tick = "<:vx_tick:1346442266688094251>"
+cross = "<:vx_cross:1346442303786717194>"
 
 
 class RoleInfoView(View):
@@ -40,7 +40,7 @@ class RoleInfoView(View):
     self.role = role
     self.author_id = author_id
 
-  @discord.ui.button(label='Show Permissions',  emoji="<:admin:1205192382975582321>", style=discord.ButtonStyle.secondary)
+  @discord.ui.button(label='Show Permissions',  emoji="<:vx_admin:1346518522888716362>", style=discord.ButtonStyle.secondary)
   async def show_permissions(self, interaction: discord.Interaction, button: Button):
     if interaction.user.id != self.author_id:
           await interaction.response.send_message("Uh oh! That message doesn't belong to you. You must run this command to interact with it.", ephemeral=True)
@@ -198,8 +198,8 @@ class Extra(commands.Cog):
       uptime_duration_string = f"{uptime_timedelta.days} days, {uptime_timedelta.seconds // 3600} hours, {(uptime_timedelta.seconds // 60) % 60} minutes, {uptime_timedelta.seconds % 60} seconds"
 
       embed = discord.Embed(title=f"Olympus Uptime", color=self.color)
-      embed.add_field(name="__UTC__", value=f"<:olympus_info:1227625594511163537> {uptime_string}\n\n", inline=False)
-      embed.add_field(name="__Online Duration__", value=f"<:olympus_duration:1251052632949395538> {uptime_duration_string}", inline=False)
+      embed.add_field(name="__UTC__", value=f"<:emoji_1741098010160:1346487391514398720> {uptime_string}\n\n", inline=False)
+      embed.add_field(name="__Online Duration__", value=f"<a:vx_uptime:1346447294882381854> {uptime_duration_string}", inline=False)
       embed.set_footer(text=f"Requested by {ctx.author}", icon_url=pfp)
 
       await ctx.send(embed=embed)
@@ -229,7 +229,7 @@ class Extra(commands.Cog):
 
         embed.add_field(
             name="**__About__**",
-            value=f"**Name : ** {ctx.guild.name}\n**ID :** {ctx.guild.id}\n**Owner <:olympus_owner:1228227536207740989> :** {ctx.guild.owner} (<@{ctx.guild.owner_id}>)\n**Created At : ** {c_at}\n**Members :** {len(ctx.guild.members)}",
+            value=f"**Name : ** {ctx.guild.name}\n**ID :** {ctx.guild.id}\n**Owner <a:vx_owner:1346519727622717511> :** {ctx.guild.owner} (<@{ctx.guild.owner_id}>)\n**Created At : ** {c_at}\n**Members :** {len(ctx.guild.members)}",
             inline=False
         )
 
@@ -247,7 +247,7 @@ class Extra(commands.Cog):
         )
 
         if ctx.guild.features:
-            features = "\n".join([f"<:red_tick:1243492355969908746>: {feature[:1].upper() + feature[1:].lower().replace('_', ' ')}" for feature in ctx.guild.features])
+            features = "\n".join([f"<:vx_cross:1346442303786717194>: {feature[:1].upper() + feature[1:].lower().replace('_', ' ')}" for feature in ctx.guild.features])
             embed.add_field(
                 name="**__Features__**",
                 value=f"{features if len(features) <= 1024 else features[0:1000] + '...and more'}",
@@ -272,7 +272,7 @@ class Extra(commands.Cog):
 
         embed.add_field(
             name="**__Boost Status__**",
-            value=f"Level: {ctx.guild.premium_tier} [<:olympus_booster:1243448375328903199> {ctx.guild.premium_subscription_count} boosts]",
+            value=f"Level: {ctx.guild.premium_tier} [<a:boosters_2:1346520627846053898> {ctx.guild.premium_subscription_count} boosts]",
             inline=False
         )
 
@@ -404,7 +404,7 @@ class Extra(commands.Cog):
 **Name:** {member}
 **ID:** {member.id}
 **Nickname:** {nickk}
-**Bot?:** {'<a:emoji_1740993086003:1346047306230792204> Yes' if member.bot else '<a:max_cross2:1346031247192883254> No'}
+**Bot?:** {'<a:vx_bot:1346049477521444916> Yes' if member.bot else '<:vx_cross:1346442303786717194> No'}
 **Badges:** {badges}
 **Account Created:** <t:{round(member.created_at.timestamp())}:R>
 **Server Joined:** {joinedat}
@@ -424,7 +424,7 @@ class Extra(commands.Cog):
       embed.add_field(
         name="__Extra__",
         value=
-        f"**Boosting:** {f'<t:{round(member.premium_since.timestamp())}:R>' if member in ctx.guild.premium_subscribers else 'None'}\n**Voice <:olympus_mic:1222790370216120382>:** {'None' if not member.voice else member.voice.channel.mention}",
+        f"**Boosting:** {f'<t:{round(member.premium_since.timestamp())}:R>' if member in ctx.guild.premium_subscribers else 'None'}\n**Voice <:vx_mic:1346521971344543874>:** {'None' if not member.voice else member.voice.channel.mention}",
         inline=False)
     if member in ctx.guild.members:
       embed.add_field(name="__Key Permissions__",
@@ -489,7 +489,7 @@ class Extra(commands.Cog):
   @commands.cooldown(1, 3, commands.BucketType.user)
   async def boosts(self, ctx):
     await ctx.send(
-      embed=discord.Embed(title=f"<:olympus_booster:1243448375328903199> Boosts Count Of {ctx.guild.name}",
+      embed=discord.Embed(title=f"<a:boosters_2:1346520627846053898> Boosts Count Of {ctx.guild.name}",
                           description="**Total `%s` boosts**" %
                           (ctx.guild.premium_subscription_count),
                           color=self.color))
@@ -1031,7 +1031,7 @@ class Extra(commands.Cog):
     embed.add_field(name="Server", value=ctx.guild.name, inline=False)
     embed.add_field(name="Channel", value=ctx.channel.name, inline=False)
     await channel.send(embed=embed)
-    confirm_embed = discord.Embed(title="<a:success:1204107381575917668> Bug Reported",
+    confirm_embed = discord.Embed(title="<:vx_tick:1346442266688094251> Bug Reported",
       description="Thank you for reporting the bug. We will look into it.",
       color=0x00FFFF)
     await ctx.reply(embed=confirm_embed)

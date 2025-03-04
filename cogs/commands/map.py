@@ -26,7 +26,7 @@ class MapView(ui.View):
     def get_coordinates(self, location):
         
         try:
-            headers = {'User-Agent': 'Olympus Bot (https://olyumpus.vercel.app)'}
+            headers = {'User-Agent': 'Versatile X (https://discord.gg/F8weADeZ)'}
             response = requests.get(f'https://nominatim.openstreetmap.org/search?q={location}&format=json', headers=headers)
             response.raise_for_status()
             data = response.json()[0]
@@ -44,7 +44,7 @@ class MapView(ui.View):
         if self.latitude is None or self.longitude is None:
             await interaction.response.send_message("Failed to retrieve map data. Please try again.", ephemeral=True)
             return
-        embed = discord.Embed(title=f"<:emoji_1740994209352:1346052017885544531>  Map of {self.location}", color=0x00FFFF)
+        embed = discord.Embed(title=f":emoji_1740994209352:  Map of {self.location}", color=0x00FFFF)
         embed.add_field(name="🌐  Open in Webpage", value=f"➜  **[Click Here](https://www.openstreetmap.org/?mlat={self.latitude}&mlon={self.longitude}&zoom={self.zoom_level})**")
         embed.add_field(name="🔍  Current Zoom Level", value=f"➜  {str(self.zoom_level)}")
         embed.add_field(name="<:emoji_1740994209352:1346052017885544531>   Map Style", value=f"➜  {self.map_style}")

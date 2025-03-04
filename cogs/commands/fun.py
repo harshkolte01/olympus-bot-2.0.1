@@ -98,7 +98,7 @@ class Fun(commands.Cog):
   @ignore_check()
   @commands.cooldown(1, 3, commands.BucketType.user)
   async def mydog(self, ctx, user: discord.User):
-      processing= await ctx.reply("<a:loading:1246691973633671268> Processing Image...")
+      processing= await ctx.reply("<a:vx_loading:1340946401563115621> Processing Image...")
       base_image_path = "data/pictures/mydog.jpg"
       base_image = Image.open(base_image_path).convert("RGBA")
 
@@ -156,7 +156,7 @@ class Fun(commands.Cog):
   @ignore_check()
   @commands.cooldown(1, 3, commands.BucketType.user)
   async def howgay(self, ctx, *, person):
-    embed = discord.Embed(title="<a:gay:1213280970200059954> About your gayness", color=discord.Color.random())
+    embed = discord.Embed(title="<:vx_gay:1346526835210584117> About your gayness", color=discord.Color.random())
     responses = random.randrange(1, 150)
     embed.description = f'**{person} is {responses}% Gay** :rainbow:'
     embed.set_footer(text=f'How gay are you? - {ctx.author.name}')
@@ -171,7 +171,7 @@ class Fun(commands.Cog):
   @ignore_check()
   @commands.cooldown(1, 3, commands.BucketType.user)
   async def lesbian(self, ctx, *, person):
-    embed = discord.Embed(title="<:lesbian:1257104649119469729> Lesbian Meter", color=discord.Color.random())
+    embed = discord.Embed(title="<a:vx_lesbian:1346529229235556383> Lesbian Meter", color=discord.Color.random())
     responses = random.randrange(1, 150)
     embed.description = f'**{person} is {responses}% Lesbian** <:e_lesbian:1257104534300266577>'
     embed.set_footer(text=f'How lesbian are you? - {ctx.author.name}')
@@ -185,7 +185,7 @@ class Fun(commands.Cog):
   @ignore_check()
   @commands.cooldown(1, 3, commands.BucketType.user)
   async def chutiya(self, ctx, *, person):
-    embed = discord.Embed(title="<:chumtiya:1272578700977897637> About your Chumtiyapa", color=discord.Color.random())
+    embed = discord.Embed(title="<:vx_chutiya:1346529319371018291> About your Chumtiyapa", color=discord.Color.random())
     responses = random.randrange(1, 150)
     embed.description = f'**Abbe {person} to {responses}% Chootiya Ha** 😂'
     embed.set_footer(text=f'How chutiya are you? - {ctx.author.name}')
@@ -198,7 +198,7 @@ class Fun(commands.Cog):
   @ignore_check()
   @commands.cooldown(1, 3, commands.BucketType.user)
   async def tharki(self, ctx, *, person):
-    embed = discord.Embed(title="<a:tharkinazar:1221837379581513809> About your Tharkipan", color=discord.Color.random())
+    embed = discord.Embed(title="<:vx_tharki:1346529377206141070> About your Tharkipan", color=discord.Color.random())
     responses = random.randrange(1, 150)
     embed.description = f'**Sala {person} to {responses}% Tharki Nikla** 😂'
     embed.set_footer(text=f'How tharki are you? - {ctx.author.name}')
@@ -212,7 +212,7 @@ class Fun(commands.Cog):
   @ignore_check()
   @commands.cooldown(1, 3, commands.BucketType.user)
   async def horny(self, ctx, *, person):
-    embed = discord.Embed(title="<:hornymf:1272578902916599881> About your horniness", color=discord.Color.random())
+    embed = discord.Embed(title="<:vx_horny:1346529648393326612> About your horniness", color=discord.Color.random())
     responses = random.randrange(1, 150)
     embed.description = f'**{person} is {responses}% Horny** 😳'
     embed.set_footer(text=f'How horny are you? - {ctx.author.name}')
@@ -226,7 +226,7 @@ class Fun(commands.Cog):
   @ignore_check()
   @commands.cooldown(1, 3, commands.BucketType.user)
   async def cute(self, ctx, *, person):
-    embed = discord.Embed(title="<:cute:1272579266789244989> About your cuteness", color=discord.Color.random())
+    embed = discord.Embed(title="<a:vx_cute:1346529725723574325> About your cuteness", color=discord.Color.random())
     responses = random.randrange(1, 150)
     embed.description = f'**{person} is {responses}% Cute** 🥰'
     embed.set_footer(text=f'How cute are you? - {ctx.author.name}')
@@ -240,9 +240,9 @@ class Fun(commands.Cog):
   @ignore_check()
   @commands.cooldown(1, 3, commands.BucketType.user)
   async def intelligence(self, ctx, *, person):
-    embed = discord.Embed(title="<:bigbrain:1272579494690951220> About your intelligence", color=discord.Color.random())
+    embed = discord.Embed(title="<:vx_bigbrain:1346529818560434238> About your intelligence", color=discord.Color.random())
     responses = random.randrange(1, 150)
-    embed.description = f'**{person} has an IQ of {responses}%** <a:MATHS:1204235249916317697>'
+    embed.description = f'**{person} has an IQ of {responses}%** <a:Pepe_maths_confused_think:1346531375603515442>'
     embed.set_footer(text=f'How intelligent are you? - {ctx.author.name}')
     await ctx.reply(embed=embed)
 
@@ -404,7 +404,7 @@ class Fun(commands.Cog):
   async def fake_ban(self, ctx, user: discord.Member):
     embed = discord.Embed(
       title="Successfully Banned!",
-      description=f"<a:emoji_1740993086003:1346047306230792204> | {user.mention} has been successfully banned",
+      description=f"<:vx_tick:1346442266688094251> | {user.mention} has been successfully banned",
       color=0x00FFFF
     )
     embed.set_footer(
@@ -666,7 +666,7 @@ class Fun(commands.Cog):
       response = requests.get(base_url, params=params)
       if response.status_code == 200:
         translation = response.json()[0][0][0]
-        embed = discord.Embed(title="<:GoogleTranslate:1257101053489578096> **Translation Result:**", color=0x00FFFF)
+        embed = discord.Embed(title="<:emoji_1741108260425:1346530383700955198> **Translation Result:**", color=0x00FFFF)
         embed.add_field(name="__Original:__", value=message, inline=False)
         embed.add_field(name="__Translated:__", value=translation, inline=False)
         embed.set_footer(text=f"Requested By {ctx.author}",

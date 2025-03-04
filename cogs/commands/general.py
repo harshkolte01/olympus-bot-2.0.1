@@ -194,7 +194,7 @@ class General(commands.Cog):
         embed = discord.Embed(title="Member Statistics",
                               color=0x00FFFF)
         embed.add_field(name="__Count Stats:__",
-                        value=f"<:users:1346049251045675030> Total Members: {total_members}\n<:emoji_1740993594570:1346049439512399893>  Total Humans: {total_humans}\n<a:max_bot:1346049477521444916> Total Bots: {total_bots}",
+                        value=f"<:users:1346049251045675030> Total Members: {total_members}\n<:emoji_1740993594570:1346049439512399893>  Total Humans: {total_humans}\n<a:vx_bot:1346049477521444916> Total Bots: {total_bots}",
                         inline=False)
 
         embed.add_field(name="__Presence Stats:__", value=f"<:online:1346049706572120094>  Online: {online}\n<:fa_dnd:1346049753506648105> Dnd: {dnd}\n<:emoji_1740993807255:1346050331913748491>  Idle: {idle}\n<:offline:1346049827007500300> Offline: {offline}", inline=False)
@@ -211,8 +211,8 @@ class General(commands.Cog):
                         description=f"{message}",
                         color=self.color)
     msg = await ctx.send(embed=emp)
-    await msg.add_reaction("<:YES:1212448034437210142>")
-    await msg.add_reaction("<:No:1212448060135841852>")
+    await msg.add_reaction("<:emoji_1741109968510:1346537547081449593>")
+    await msg.add_reaction("<:emoji_1741109989927:1346537637061853326>")
 
   
   @commands.command(name="hack",
@@ -316,7 +316,7 @@ class General(commands.Cog):
     await message1.delete()
     embed = discord.Embed(
       title=f"{self.bot.user.name}",
-      description=f"**a:emoji_1739014658775:1337749180784971881> Successfully Wizzed {ctx.guild.name}**",
+      description=f"**<a:emoji_1739014658775:1337749180784971881> Successfully Wizzed {ctx.guild.name}**",
       color=self.color,
       timestamp=ctx.message.created_at)
     embed.set_footer(
@@ -424,40 +424,6 @@ class General(commands.Cog):
                       value="```{}```".format(algos[algorithm.lower()]),
                       inline=False)
     await ctx.reply(embed=embed, mention_author=True)
-
-  
-  @commands.command(name="invite",
-                           aliases=['invite-bot'],
-                           description="Get Support & Bot invite link!")
-  @blacklist_check()
-  @ignore_check()
-  @commands.cooldown(1, 3, commands.BucketType.user)
-  async def invite(self, ctx: commands.Context):
-    embed = discord.Embed(title="Olympus Invite & Support!",
-      description=
-      f"> <:created:1272499720153202688> **[Olympus - Invite Bot](https://discord.com/oauth2/authorize?client_id=1144179659735572640&permissions=2113268958&scope=bot)**\n> <:created:1272499720153202688> **[Olympus - Support](https://discord.gg/odx)**",
-      color=0x00FFFF)
-
-    embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/1267667804048588992.png")
-    embed.set_footer(text=f"Requested by {ctx.author.name}",
-                     icon_url=ctx.author.avatar.url if ctx.author.avatar else ctx.author.default_avatar.url)
-    invite = Button(
-      label='Invite',
-      style=discord.ButtonStyle.link,
-      url=
-      'https://discord.com/oauth2/authorize?client_id=1144179659735572640&permissions=2113268958&scope=bot'
-    )
-    support = Button(label='Support',
-                    style=discord.ButtonStyle.link,
-                    url=f'https://discord.gg/odx')
-    vote = Button(label='Vote',
-                      style=discord.ButtonStyle.link,
-                      url='https://top.gg/bot/1144179659735572640/vote')
-    view = View()
-    view.add_item(invite)
-    view.add_item(support)
-    view.add_item(vote)
-    await ctx.send(embed=embed, view=view)
 
 """
 @Author: Sonu Jana

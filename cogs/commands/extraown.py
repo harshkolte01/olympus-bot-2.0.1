@@ -36,9 +36,9 @@ class Extraowner(commands.Cog):
             await ctx.send(embed=embed)
             return
 
-        Olympus = ['1070619070468214824', '677952614390038559']
+        Olympus = ['520174525090889731', '1243886320590524440', '1263356161344671805']
         if ctx.author.id != ctx.guild.owner_id and str(ctx.author.id) not in Olympus:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Access Denied",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Access Denied",
                                   description="Only Server Owner Can Run This Command",
                                   color=0x00FFFF
             )
@@ -62,7 +62,7 @@ class Extraowner(commands.Cog):
         
         if option.lower() == 'set':
             if user is None or user.bot:
-                embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+                embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                     description="Please Provide a Valid User Mention or ID to Set as Extra Owner!",
                     color=0x00FFFF
                 )
@@ -84,7 +84,7 @@ class Extraowner(commands.Cog):
             elif view.value:
                 await self.db.execute('INSERT OR REPLACE INTO extraowners (guild_id, owner_id) VALUES (?, ?)', (guild_id, user.id))
                 await self.db.commit()
-                embed = discord.Embed(title="<:olympus_tick:1227866641027698792> Success",
+                embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                     description=f"Added {user.mention} As Extraowner",
                     color=0x00FFFF
                 )
@@ -98,7 +98,7 @@ class Extraowner(commands.Cog):
                 row = await cursor.fetchone()
 
             if not row:
-                embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+                embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                     description="No extra owner has been designated for this guild.",
                     color=0x00FFFF
                 )
@@ -119,7 +119,7 @@ class Extraowner(commands.Cog):
                 elif view.value:
                     await self.db.execute('DELETE FROM extraowners WHERE guild_id = ?', (guild_id,))
                     await self.db.commit()
-                    embed = discord.Embed(title="<:olympus_tick:1227866641027698792> Success",
+                    embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                         description="Disabled Extraowner Configuration!",
                         color=0x00FFFF
                     )
@@ -132,7 +132,7 @@ class Extraowner(commands.Cog):
                 row = await cursor.fetchone()
 
             if not row:
-                embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+                embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                     description="No extra owner is currently assigned.",
                     color=0x00FFFF
                 )

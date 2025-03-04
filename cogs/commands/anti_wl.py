@@ -70,7 +70,7 @@ class Whitelist(commands.Cog):
 
         is_owner = ctx.author.id == ctx.guild.owner_id
         if not is_owner and not check:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Access Denied",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Access Denied",
                 color=0x00FFFF,
                 description="Only Server Owner or Extra Owner can Run this Command!"
             )
@@ -80,9 +80,9 @@ class Whitelist(commands.Cog):
             embed = discord.Embed(
                 color=0x00FFFF,
                 description=(
-                    f"**{ctx.guild.name} Security Settings <:automod:1345799346662281347>\n"
+                    f"**{ctx.guild.name} Security Settings <:vx_automod:1345799346662281347>\n"
                     "Ohh No! looks like your server doesn't enabled Antinuke\n\n"
-                    "Current Status ::<:disabled:1346043664337469592>\n\n"
+                    "Current Status: <:vx_disabled:1346444954133594163>\n\n"
                     f"To enable use `{prefix}antinuke enable` **"
                 )
             )
@@ -95,7 +95,7 @@ class Whitelist(commands.Cog):
                 title="__**Whitelist Commands**__",
                 description="**Adding a user to the whitelist means that no actions will be taken against them if they trigger the Anti-Nuke Module.**"
             )
-            embed.add_field(name="__**Usage**__", value=f"<:dot:1346043931577684020>`{prefix}whitelist @user/id`\n<:dot:1346043931577684020>`{prefix}wl @user`")
+            embed.add_field(name="__**Usage**__", value=f"<:vx_dot:1346043931577684020>`{prefix}whitelist @user/id`\n<:vx_dot:1346043931577684020>`{prefix}wl @user`")
             embed.set_thumbnail(url=ctx.bot.user.avatar.url)
             return await ctx.send(embed=embed)
 
@@ -106,7 +106,7 @@ class Whitelist(commands.Cog):
             data = await cursor.fetchone()
 
         if data:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                 color=0x00FFFF,
                 description=f"<@{member.id}> is already a whitelisted member, **Unwhitelist** the user and try again."
             )
@@ -146,20 +146,20 @@ class Whitelist(commands.Cog):
             title=ctx.guild.name,
             color=0x00FFFF,
             description=(
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Ban**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Kick**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Prune**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Bot Add**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Server Update**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Member Update**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Channel Create**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Channel Delete**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Channel Update**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Role Create**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Role Delete**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Role Update**\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Mention** @everyone\n"
-                f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **Webhook Management**"
+                f"<:vx_disabled:1346444954133594163>  : **Kick**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Ban**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Prune**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Bot Add**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Server Update**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Member Update**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Channel Create**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Channel Delete**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Channel Update**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Role Create**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Role Delete**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Role Update**\n"
+                f"<:vx_disabled:1346444954133594163>  : **Mention** @everyone\n"
+                f"<:vx_disabled:1346444954133594163>  : **Webhook Management**"
                 
             )
         )
@@ -188,20 +188,20 @@ class Whitelist(commands.Cog):
                     title=ctx.guild.name,
                     color=0x00FFFF,
                     description=(
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Ban**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Kick**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Prune**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Bot Add**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Server Update**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Member Update**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Channel Create**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Channel Delete**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Channel Update**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Role Create**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Role Delete**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Role Update**\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Mention** @everyone\n"
-                        f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **Webhook Management**"
+                        f"<:vx_enabled:1346444890913116243> : **Ban**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Kick**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Prune**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Bot Add**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Server Update**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Member Update**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Channel Create**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Channel Delete**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Channel Update**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Role Create**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Role Delete**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Role Update**\n"
+                        f"<:vx_enabled:1346444890913116243> : **Mention** @everyone\n"
+                        f"<:vx_enabled:1346444890913116243> : **Webhook Management**"
                         
                     )
                 )
@@ -231,7 +231,7 @@ class Whitelist(commands.Cog):
                 }
 
                 
-                embed_description = "\n".join(f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **{name}**" for key, name in fields.items())
+                embed_description = "\n".join(f"<:vx_cross:1346442303786717194><:vx_tick:1346442266688094251>  : **{name}**" for key, name in fields.items())
 
                 
                 for value in interaction.data["values"]:
@@ -239,7 +239,7 @@ class Whitelist(commands.Cog):
                         f"UPDATE whitelisted_users SET {value} = ? WHERE guild_id = ? AND user_id = ?",
                         (True, ctx.guild.id, member.id)
                     )
-                    embed_description = embed_description.replace(f"<a:max_cross2:1346031247192883254><a:emoji_1739009599972:1337727962635833457>  : **{fields[value]}**", f"<:antinuke_cross2:1276218117206577202><:antinuke_tick1:1276216939407999036> : **{fields[value]}**")
+                    embed_description = embed_description.replace(f"<:vx_cross:1346442303786717194><:vx_tick:1346442266688094251>  : **{fields[value]}**", f"<:vx_cross:1346442303786717194><:vx_tick:1346442266688094251> : **{fields[value]}**")
 
                 await self.db.commit()
 
@@ -290,7 +290,7 @@ class Whitelist(commands.Cog):
 
         is_owner = ctx.author.id == ctx.guild.owner_id
         if not is_owner and not check:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Access Denied",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Access Denied",
                 color=0x00FFFF,
                 description="Only Server Owner or Extra Owner can Run this Command!"
             )
@@ -300,9 +300,9 @@ class Whitelist(commands.Cog):
             embed = discord.Embed(
                 color=0x00FFFF,
                 description=(
-                    f"**{ctx.guild.name} security settings <:automod:1345799346662281347>\n"
+                    f"**{ctx.guild.name} security settings <:vx_automod:1345799346662281347>\n"
                     "Ohh NO! looks like your server doesn't enabled security\n\n"
-                    "Current Status ::<:disabled:1346043664337469592>\n\n"
+                    "Current Status ::<:vx_disabled:1346444954133594163>\n\n"
                     f"To enable use `{pre}antinuke enable` **"
                 )
             )
@@ -316,7 +316,7 @@ class Whitelist(commands.Cog):
             data = await cursor.fetchall()
 
         if not data:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                 color=0x00FFFF,
                 description="No whitelisted users found."
             )
@@ -364,7 +364,7 @@ class Whitelist(commands.Cog):
 
         is_owner = ctx.author.id == ctx.guild.owner_id
         if not is_owner and not check:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Access Denied",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Access Denied",
                 color=0x00FFFF,
                 description="Only Server Owner or Extra Owner can Run this Command!"
             )
@@ -374,9 +374,9 @@ class Whitelist(commands.Cog):
             embed = discord.Embed(
                 color=0x00FFFF,
                 description=(
-                    f"**{ctx.guild.name} Security Settings <:automod:1345799346662281347>\n"
+                    f"**{ctx.guild.name} Security Settings <:vx_automod:1345799346662281347>\n"
                     "Ohh NO! looks like your server doesn't enabled security\n\n"
-                    "Current Status ::<:disabled:1346043664337469592>\n\n"
+                    "Current Status ::<:vx_disabled:1346444954133594163>\n\n"
                     f"To enable use `{pre}antinuke enable` **"
                 )
             )
@@ -390,7 +390,7 @@ class Whitelist(commands.Cog):
 
 
         if not data:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                 color=0x00FFFF,
                 description="No whitelisted users found."
             )
@@ -398,7 +398,7 @@ class Whitelist(commands.Cog):
 
         await self.db.execute("DELETE FROM whitelisted_users WHERE guild_id = ?", (ctx.guild.id,))
         await self.db.commit()
-        embed = discord.Embed(title="<:olympus_tick:1227866641027698792> Success",
+        embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
             color=0x00FFFF,
             description=f"Removed all whitelisted members from {ctx.guild.name}"
         )

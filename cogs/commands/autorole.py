@@ -100,8 +100,8 @@ class AutoRole(commands.Cog):
             bos = "\n".join(role.mention for role in fetched_bots) or "None"
 
             emb = discord.Embed(color=self.color, title=f"Autorole Configuration for {ctx.guild.name}")
-            emb.add_field(name="<:olympus_friend:1228229690376982549> __Humans__", value=hums, inline=False)
-            emb.add_field(name="<:olympus_bot:1227873668466741320> __Bots__", value=bos, inline=False)
+            emb.add_field(name="<:vx_users:1346049251045675030> __Humans__", value=hums, inline=False)
+            emb.add_field(name="<a:vx_bot:1346049477521444916> __Bots__", value=bos, inline=False)
 
             await ctx.send(embed=emb)
         else:
@@ -137,11 +137,11 @@ class AutoRole(commands.Cog):
             async with aiosqlite.connect(DATABASE_PATH) as db:
                 await db.execute("UPDATE autorole SET humans = ? WHERE guild_id = ?", ('[]', ctx.guild.id))
                 await db.commit()
-            embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+            embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                   description="Cleared all human autoroles in this Guild.",
                                   color=self.color)
         else:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                                   description="No Autoroles set for humans in this Guild.",
                                   color=self.color)
 
@@ -163,11 +163,11 @@ class AutoRole(commands.Cog):
             async with aiosqlite.connect(DATABASE_PATH) as db:
                 await db.execute("UPDATE autorole SET bots = ? WHERE guild_id = ?", ('[]', ctx.guild.id))
                 await db.commit()
-            embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+            embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                   description="Cleared all bot autoroles in this Guild.",
                                   color=self.color)
         else:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                                   description="No Autoroles set for Bots in this Guild.",
                                   color=self.color)
 
@@ -189,11 +189,11 @@ class AutoRole(commands.Cog):
             async with aiosqlite.connect(DATABASE_PATH) as db:
                 await db.execute("UPDATE autorole SET humans = ?, bots = ? WHERE guild_id = ?", ('[]', '[]', ctx.guild.id))
                 await db.commit()
-            embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+            embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                   description="Cleared all autoroles in this Gudild.",
                                   color=self.color)
         else:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                   description="No Autoroles set in this Guild.",
                   color=self.color)
 
@@ -225,11 +225,11 @@ class AutoRole(commands.Cog):
         if data:
             humans = eval(data[0])
             if role.id in humans:
-                embed = discord.Embed(title="<:olympus_notify:1227866804630720565> Access Denied",
+                embed = discord.Embed(title="<:vx_notify:1346484523717886033> Access Denied",
                                     description=f"{role.mention} is already in human autoroles.",
                                     color=self.color)
             elif len(humans) >= 10:
-                embed = discord.Embed(title="<:olympus_notify:1227866804630720565> Access Denied",
+                embed = discord.Embed(title="<:vx_notify:1346484523717886033> Access Denied",
                                     description="You can only add upto 10 human autoroles.",
                                     color=self.color)
             else:
@@ -237,7 +237,7 @@ class AutoRole(commands.Cog):
                 async with aiosqlite.connect(DATABASE_PATH) as db:
                     await db.execute("UPDATE autorole SET humans = ? WHERE guild_id = ?", (str(humans), ctx.guild.id))
                     await db.commit()
-                embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+                embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                     description=f"{role.mention} has been added to human autoroles.",
                                     color=self.color)
         else:
@@ -245,7 +245,7 @@ class AutoRole(commands.Cog):
             async with aiosqlite.connect(DATABASE_PATH) as db:
                 await db.execute("INSERT INTO autorole (guild_id, humans, bots) VALUES (?, ?, ?)", (ctx.guild.id, str(humans), '[]'))
                 await db.commit()
-            embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+            embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                   description=f"{role.mention} has been added to human autoroles.",
                                   color=self.color)
 
@@ -266,7 +266,7 @@ class AutoRole(commands.Cog):
         if data:
             humans = eval(data[0])
             if role.id not in humans:
-                embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+                embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                                     description=f"{role.mention} is not in human autoroles.",
                                     color=self.color)
             else:
@@ -274,11 +274,11 @@ class AutoRole(commands.Cog):
                 async with aiosqlite.connect(DATABASE_PATH) as db:
                     await db.execute("UPDATE autorole SET humans = ? WHERE guild_id = ?", (str(humans), ctx.guild.id))
                     await db.commit()
-                embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+                embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                     description=f"{role.mention} has been removed from human autoroles.",
                                     color=self.color)
         else:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                                   description=f"No Autoroles set in this guild for humans.",
                                   color=self.color)
 
@@ -310,11 +310,11 @@ class AutoRole(commands.Cog):
         if data:
             bots = eval(data[0])
             if role.id in bots:
-                embed = discord.Embed(title="<:olympus_notify:1227866804630720565> Access Denied",
+                embed = discord.Embed(title="<:vx_notify:1346484523717886033> Access Denied",
                                       description=f"{role.mention} is already in bot autoroles.",
                                       color=self.color)
             elif len(bots) >= 10:
-                embed = discord.Embed(title="<:olympus_notify:1227866804630720565> Access Denied",
+                embed = discord.Embed(title="<:vx_notify:1346484523717886033> Access Denied",
                                     description="You can only add upto 10 bot autoroles",
                                     color=self.color)
             else:
@@ -322,7 +322,7 @@ class AutoRole(commands.Cog):
                 async with aiosqlite.connect(DATABASE_PATH) as db:
                     await db.execute("UPDATE autorole SET bots = ? WHERE guild_id = ?", (str(bots), ctx.guild.id))
                     await db.commit()
-                embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+                embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                     description=f"{role.mention} has been added to bot autoroles.",
                                     color=self.color)
         else:
@@ -330,7 +330,7 @@ class AutoRole(commands.Cog):
             async with aiosqlite.connect(DATABASE_PATH) as db:
                 await db.execute("INSERT INTO autorole (guild_id, humans, bots) VALUES (?, ?, ?)", (ctx.guild.id, '[]', str(bots)))
                 await db.commit()
-            embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+            embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                   description=f"{role.mention} has been added to bot autoroles.",
                                 color=self.color)
 
@@ -351,7 +351,7 @@ class AutoRole(commands.Cog):
         if data:
             bots = eval(data[0])
             if role.id not in bots:
-                embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+                embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                                       description=f"{role.mention} is not in bot autoroles.",
                                       color=self.color)
             else:
@@ -359,11 +359,11 @@ class AutoRole(commands.Cog):
                 async with aiosqlite.connect(DATABASE_PATH) as db:
                     await db.execute("UPDATE autorole SET bots = ? WHERE guild_id = ?", (str(bots), ctx.guild.id))
                     await db.commit()
-                embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+                embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                       description=f"{role.mention} has been removed from bot autoroles.",
                                       color=self.color)
         else:
-            embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+            embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                                   description=f"No Autoroles set in this guild for bots.",
                                   color=self.color)
 

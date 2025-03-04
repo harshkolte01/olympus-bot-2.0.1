@@ -38,13 +38,13 @@ class Invcrole(commands.Cog):
             async with db.execute('SELECT role_id FROM vcroles WHERE guild_id = ?', (ctx.guild.id,)) as cursor:
                 row = await cursor.fetchone()
                 if row:
-                    embed = discord.Embed(title="<:olympus_notify:1227866804630720565> Access Denied",
+                    embed = discord.Embed(title="<:vx_notify:1346484523717886033> Access Denied",
                                           description=f"VC role is already set in this guild with the role {ctx.guild.get_role(row[0]).mention}.\nPlease **remove** it to add another one.", color=0x00FFFF)
                     await ctx.reply(embed=embed)
                     return
             await db.execute('INSERT INTO vcroles (guild_id, role_id) VALUES (?, ?)', (ctx.guild.id, role.id))
             await db.commit()
-            embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+            embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                   description=f"VC role {role.mention} added for this guild.", color=0x00FFFF)
             await ctx.reply(embed=embed)
 
@@ -57,13 +57,13 @@ class Invcrole(commands.Cog):
             async with db.execute('SELECT role_id FROM vcroles WHERE guild_id = ? AND role_id = ?', (ctx.guild.id, role.id)) as cursor:
                 row = await cursor.fetchone()
                 if not row:
-                    embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+                    embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                                           description="Given role is not set in VC role.", color=0x00FFFF)
                     await ctx.send(embed=embed)
                     return
             await db.execute('DELETE FROM vcroles WHERE guild_id = ? AND role_id = ?', (ctx.guild.id, role.id))
             await db.commit()
-            embed = discord.Embed(title="<a:emoji_1740993086003:1346047306230792204> Success",
+            embed = discord.Embed(title="<:vx_tick:1346442266688094251> Success",
                                   description=f"VC role {role.mention} removed for this guild.", color=0x00FFFF)
             await ctx.send(embed=embed)
 
@@ -76,7 +76,7 @@ class Invcrole(commands.Cog):
             async with db.execute('SELECT role_id FROM vcroles WHERE guild_id = ?', (ctx.guild.id,)) as cursor:
                 row = await cursor.fetchone()
                 if not row:
-                    embed = discord.Embed(title="<a:max_cross2:1346031247192883254> Error",
+                    embed = discord.Embed(title="<:vx_cross:1346442303786717194> Error",
                                           description="VC role is not set in this guild.", color=0x00FFFF)
                     await ctx.send(embed=embed)
                     return
